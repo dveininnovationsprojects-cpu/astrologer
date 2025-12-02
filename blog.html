@@ -1,209 +1,159 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Astrology Blog/Articles Page</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#1132d4",
-              "background-light": "#f6f6f8",
-              "background-dark": "#101322",
-            },
-            fontFamily: {
-              "display": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
-        },
-      }
-    </script>
-<style>
-        body {
-            font-family: 'Manrope', sans-serif;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Cosmic Guidance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #1132d4; --bg-dark: #101322; --bg-card: rgba(255, 255, 255, 0.05); --text-white: #ffffff; --border-color: #232948; }
+        body { font-family: 'Manrope', sans-serif; background-color: var(--bg-dark); color: var(--text-white); }
+        .navbar { background-color: rgba(16, 19, 34, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        .nav-link { color: #d1d5db !important; font-weight: 500; margin-right: 15px; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-color) !important; }
+        .navbar-toggler { border-color: rgba(255,255,255,0.1); filter: invert(1); }
+        .btn-primary-custom { background-color: var(--primary-color); color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 700; transition: 0.3s; }
+        .btn-primary-custom:hover { background-color: #0e2ab0; color: white; }
+        
+        .blog-hero {
+            background: linear-gradient(0deg, rgba(16, 19, 34, 0.9) 0%, rgba(16, 19, 34, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAUMSnt9cIr55j5UxdMgkF1q_CnOwlab4Wt7waIuc_--mghi0jB4hXgYZEFH2J4pt8nRoSrJ75AD29MIhIFAkA-X-L0HEwxg5Ljsu4lquPaZXlK2_1znbUtYG0G5_Y6U19APrPnu2BvxVKTmzNe6OJMVKM3GLg0Lqf-Ssyv4xXXZO-4EljNMa2xfpAujIWQ5TIM3wAxW8aVKsqh30B-r8xR9kYbUeIwmh8H-axvGCQDIx8OUdXpatyXKbKy77UQek2qiqfRHzn0r9eP");
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            min-height: 350px;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            margin-top: 30px;
         }
+
+        .search-input { background-color: #1a2035; border: none; color: white; height: 50px; }
+        .search-input:focus { background-color: #1a2035; color: white; box-shadow: none; border: 1px solid var(--primary-color); }
+        
+        .filter-chip {
+            background-color: #1a2035;
+            color: #d1d5db;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .filter-chip:hover, .filter-chip.active { background-color: var(--primary-color); color: white; }
+
+        .blog-card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+        .blog-item:hover .blog-card-img { transform: scale(1.02); }
+
+        footer { border-top: 1px solid var(--border-color); background-color: #0d101b; padding: 30px 0; margin-top: 50px; }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-4 sm:px-8 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-<!-- TopNavBar -->
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 dark:border-b-[#232948] px-4 sm:px-10 py-3">
-<div class="flex items-center gap-4 text-gray-800 dark:text-white">
-<div class="size-4">
-<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z"></path></svg>
-</div>
-<h2 class="text-gray-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Astrology Insights</h2>
-</div>
-<div class="hidden md:flex flex-1 justify-end gap-8">
-<div class="flex items-center gap-9">
-<a class="text-gray-600 dark:text-white text-sm font-medium leading-normal" href="index.html">Home</a>
-<a class="text-gray-600 dark:text-white text-sm font-medium leading-normal" href="service.html">Services</a>
-<a class="text-gray-600 dark:text-white text-sm font-medium leading-normal" href="about.html">About</a>
-<a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="blog.html">Blog</a>
-</div>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
-<span class="truncate">Book a Reading</span>
-</button>
-</div>
-<div class="md:hidden">
-<button class="text-gray-800 dark:text-white">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</header>
-<main class="flex-1">
-<!-- HeaderImage (Featured Article) -->
-<div class="@container pt-8">
-<div class="px-4 py-3">
-<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-80" data-alt="Cosmic view of stars and nebulae in deep space." style='background-image: linear-gradient(0deg, rgba(16, 19, 34, 0.7) 0%, rgba(16, 19, 34, 0) 40%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAUMSnt9cIr55j5UxdMgkF1q_CnOwlab4Wt7waIuc_--mghi0jB4hXgYZEFH2J4pt8nRoSrJ75AD29MIhIFAkA-X-L0HEwxg5Ljsu4lquPaZXlK2_1znbUtYG0G5_Y6U19APrPnu2BvxVKTmzNe6OJMVKM3GLg0Lqf-Ssyv4xXXZO-4EljNMa2xfpAujIWQ5TIM3wAxW8aVKsqh30B-r8xR9kYbUeIwmh8H-axvGCQDIx8OUdXpatyXKbKy77UQek2qiqfRHzn0r9eP");'>
-<div class="flex flex-col gap-2 p-6 md:p-8">
-<p class="text-white text-sm font-bold uppercase tracking-widest text-primary/80 dark:text-primary">Featured Article</p>
-<p class="text-white tracking-tight text-[28px] font-bold leading-tight">Understanding the Current Mercury Retrograde</p>
-<p class="text-gray-300 dark:text-[#929bc9] text-base font-normal leading-normal max-w-xl">Navigate communication challenges and technological mishaps with our essential guide to surviving and thriving during this astrological event.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Search and Filters Section -->
-<div class="flex flex-col md:flex-row gap-4 px-4 py-6">
-<!-- SearchBar -->
-<div class="flex-1">
-<label class="flex flex-col min-w-40 h-12 w-full">
-<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-gray-200 dark:bg-[#232948]">
-<div class="text-gray-500 dark:text-[#929bc9] flex items-center justify-center pl-4">
-<span class="material-symbols-outlined">search</span>
-</div>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-gray-800 dark:text-white focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-gray-500 placeholder:dark:text-[#929bc9] px-2 text-base font-normal leading-normal" placeholder="Search articles by keyword" value=""/>
-</div>
-</label>
-</div>
-<!-- Chips -->
-<div class="flex gap-2 items-center flex-wrap">
-<div class="flex h-12 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-lg bg-primary/20 dark:bg-primary/30 px-4">
-<p class="text-primary dark:text-white text-sm font-medium leading-normal">All</p>
-</div>
-<div class="flex h-12 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-lg bg-gray-200 dark:bg-[#232948] px-4">
-<p class="text-gray-600 dark:text-white text-sm font-medium leading-normal">Zodiac Signs</p>
-</div>
-<div class="flex h-12 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-lg bg-gray-200 dark:bg-[#232948] px-4">
-<p class="text-gray-600 dark:text-white text-sm font-medium leading-normal">Planetary Transits</p>
-</div>
-<div class="flex h-12 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-lg bg-gray-200 dark:bg-[#232948] px-4">
-<p class="text-gray-600 dark:text-white text-sm font-medium leading-normal">Astrology 101</p>
-</div>
-</div>
-</div>
-<!-- ImageGrid (Recent Articles) -->
-<div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 p-4">
-<div class="flex flex-col gap-3 pb-3 cursor-pointer group">
-<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg overflow-hidden">
-<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="Vibrant abstract image representing Venus in Leo." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmVmGTr6-xILLKYV4eq-ip34GN0CuUt1D0SnqAuWqedZffAyw2COiBfZfK-AUwspyS69RvbzACotQnVPAqvE-S6XqeTpalpQaT7pVGdQfFGjkgUyKeVQRYDnYtCbxNc7aeZZzn5Ihaec1_YfhpyADz4VegS6z90tmKxR6gk4L_QD_0GvFUAqLLsVgNYfblzcris3VYpoWZn430aoidCDUE4YRpThnbAHKTZVJzLuLp-7K7R-kFu-lSag0G1ua_Z2kLD0-1OxWF30ZT");'></div>
-</div>
-<div>
-<p class="text-gray-500 dark:text-primary text-xs font-bold uppercase tracking-wider">Zodiac Signs</p>
-<p class="text-gray-800 dark:text-white text-base font-bold leading-normal mt-1 group-hover:text-primary">How Venus in Leo Affects Your Love Life</p>
-<p class="text-gray-500 dark:text-[#929bc9] text-sm font-normal leading-normal mt-1">October 26, 2023</p>
-</div>
-</div>
-<div class="flex flex-col gap-3 pb-3 cursor-pointer group">
-<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg overflow-hidden">
-<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="Mystical scene with a glowing new moon and crystals." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATkbjSrtDdD75_91szUgyrtY9t7u6SGZUaoOc5xsJfXHoy9ha6yB9nVDViCfHhcj3FlwwjZiFnnqKKsZVKPdl9zphqRkdFDg20x_DJDW1HZziL3MuNeDZabJeznYl4yB5dRRD--Fa8hygV9ZpiJTtWS5XpHD1rGQz4xaawvxTcZukJNg4lBViYInNgDxFwch9AlAgbsgJL_IZbPN0SwJfyLbDPbe7aCKaFSYIT1b1mG-PULn0qk_0N1v5sqg_O2_3vC149WRwUPRkF");'></div>
-</div>
-<div>
-<p class="text-gray-500 dark:text-primary text-xs font-bold uppercase tracking-wider">Spiritual Guidance</p>
-<p class="text-gray-800 dark:text-white text-base font-bold leading-normal mt-1 group-hover:text-primary">New Moon Rituals for Manifestation</p>
-<p class="text-gray-500 dark:text-[#929bc9] text-sm font-normal leading-normal mt-1">October 24, 2023</p>
-</div>
-</div>
-<div class="flex flex-col gap-3 pb-3 cursor-pointer group">
-<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg overflow-hidden">
-<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="An intricate circular birth chart with astrological symbols." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDjs5aSCb18oyyHn2WJTt9dJhAdjX5oex2qN8NX6N68auvs51AO0emlxI1LODbl_CJl3Ep7kua79ttyquWZBQFJDUyO08opGA_EJsTue5nPybC-VL-TWmo64nqsWiOx2ht7OvssGS7ikBKOkXMV3Ss0TE5RNuPD6C5jQ9hKXRMBdkAEjy44Ny0W1usWd3yD72PR6QKIVhMKY1NdOCR7N1BTBMRrSrs9_jrg0HzQDLx8baTH7_iip7tZ1yEQQac9UOdEO3WDZGCPtkUT");'></div>
-</div>
-<div>
-<p class="text-gray-500 dark:text-primary text-xs font-bold uppercase tracking-wider">Astrology 101</p>
-<p class="text-gray-800 dark:text-white text-base font-bold leading-normal mt-1 group-hover:text-primary">A Beginner's Guide to Your Birth Chart</p>
-<p class="text-gray-500 dark:text-[#929bc9] text-sm font-normal leading-normal mt-1">October 22, 2023</p>
-</div>
-</div>
-<div class="flex flex-col gap-3 pb-3 cursor-pointer group">
-<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg overflow-hidden">
-<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="An artistic depiction of the planet Jupiter in space." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDF7L6TnLG9pXB38wndPsKP28giOBmZnfzKOlsQo1lVyYguzVKgH_VQUguf0Af8gI4eXGNIPea3VUWDVtvOtQxdDp_X5jvkcQJiueqcDb3OWX5YcIRl314RWlvYt9vDSDpf6vcnq9x6pAFiG91n9anf-NoMcehPLgzOcWQ5pHGF-mDiVLLvNefQ9T20WG7Fd9gWfBSFZpCHTeWJvUIHJDGmiqOU1Y113GD4JPMCdZTAv63Xc336mB3IRzJ37sUD7vWXDwQjlgqb-EbH");'></div>
-</div>
-<div>
-<p class="text-gray-500 dark:text-primary text-xs font-bold uppercase tracking-wider">Planetary Transits</p>
-<p class="text-gray-800 dark:text-white text-base font-bold leading-normal mt-1 group-hover:text-primary">The Meaning of Jupiter's Return</p>
-<p class="text-gray-500 dark:text-[#929bc9] text-sm font-normal leading-normal mt-1">October 20, 2023</p>
-</div>
-</div>
-<div class="flex flex-col gap-3 pb-3 cursor-pointer group">
-<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg overflow-hidden">
-<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="A diagram showing the astrological houses in a chart." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVommeEd8PSERfisiwncOtpp2KyGKBfcgqkPIgfR8T01szVIaaHd3ggtWTyDVC8IfvrOw_EinLLaszsoLluLIMzKed9h-N1b-nQsjNu7UfL_lGWjTpKVeyM3W7-v0f2zai7APXA6d1vFQq142MytpLFI57xVLma0HZXj3S9ns7mvrbRftF2zA5RnnRYQCAILZCvmcjZKiC2uAg_2xmf2nrx5IPY2fy69hgk9X11_2tzp9bDcktrBpWO8feK8QSRV0Fb2ZAVYmZgwvo");'></div>
-</div>
-<div>
-<p class="text-gray-500 dark:text-primary text-xs font-bold uppercase tracking-wider">Astrology 101</p>
-<p class="text-gray-800 dark:text-white text-base font-bold leading-normal mt-1 group-hover:text-primary">Decoding the Houses in Astrology</p>
-<p class="text-gray-500 dark:text-[#929bc9] text-sm font-normal leading-normal mt-1">October 18, 2023</p>
-</div>
-</div>
-<div class="flex flex-col gap-3 pb-3 cursor-pointer group">
-<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg overflow-hidden">
-<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="A tranquil image of a full moon over water, representing Pisces." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBgqsjihDgOk9ZHefzbjRbW7HnBiQsz0_YSs3TRXas7oEMJclK8AiL-hQR0A53HtqpZPIQdL0rSlERb6Rvm0HhS0g6ToI4aCM59xv8ntazD1lfBjHsH_nlSiyQT_wDtbM6NuxA-MfXN1UhSbqA_w76ea2Ynf8dLr9flWKCTsf7PYRdSTbNwcuM2SQh43HWLPRyYyzWSTLxE8v8Wn7qHtNcDQ_Sa9thjXvgrqb712pfMGQiBBGuUkYrEAV9PzQtZ-U97APZHxCeRVd-Y");'></div>
-</div>
-<div>
-<p class="text-gray-500 dark:text-primary text-xs font-bold uppercase tracking-wider">Planetary Transits</p>
-<p class="text-gray-800 dark:text-white text-base font-bold leading-normal mt-1 group-hover:text-primary">Full Moon in Pisces: A Time for Healing</p>
-<p class="text-gray-500 dark:text-[#929bc9] text-sm font-normal leading-normal mt-1">October 15, 2023</p>
-</div>
-</div>
-</div>
-<!-- Pagination -->
-<div class="flex items-center justify-center p-8 gap-2">
-<button class="flex min-w-[40px] h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-gray-200 dark:bg-[#232948] text-gray-600 dark:text-white text-sm font-bold">
-<span class="material-symbols-outlined text-lg">chevron_left</span>
-</button>
-<button class="flex min-w-[40px] h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-white text-sm font-bold">
-<span class="truncate">1</span>
-</button>
-<button class="flex min-w-[40px] h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-gray-200 dark:bg-[#232948] text-gray-600 dark:text-white text-sm font-bold">
-<span class="truncate">2</span>
-</button>
-<button class="flex min-w-[40px] h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-gray-200 dark:bg-[#232948] text-gray-600 dark:text-white text-sm font-bold">
-<span class="truncate">3</span>
-</button>
-<button class="flex min-w-[40px] h-10 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-gray-200 dark:bg-[#232948] text-gray-600 dark:text-white text-sm font-bold">
-<span class="material-symbols-outlined text-lg">chevron_right</span>
-</button>
-</div>
-</main>
-<!-- Footer -->
-<footer class="mt-10 border-t border-solid border-white/10 dark:border-b-[#232948] px-10 py-8">
-<div class="flex flex-col md:flex-row justify-between items-center gap-6">
-<div class="flex items-center gap-4 text-gray-800 dark:text-white">
-<div class="size-4">
-<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z"></path></svg>
-</div>
-<h2 class="text-gray-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Astrology Insights</h2>
-</div>
-<div class="flex items-center gap-6 text-gray-500 dark:text-[#929bc9] text-sm font-medium">
-<a class="hover:text-primary" href="#">Privacy Policy</a>
-<a class="hover:text-primary" href="#">Terms of Service</a>
-<a class="hover:text-primary" href="#">Contact</a>
-</div>
-<p class="text-gray-500 dark:text-[#929bc9] text-sm">© 2024 Astrology Insights. All Rights Reserved.</p>
-</div>
-</footer>
-</div>
-</div>
-</div>
-</div>
-</body></html>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold d-flex align-items-center gap-2" href="#">
+                <span class="material-symbols-outlined text-primary fs-2">auto_awesome</span> Astrology Insights
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a href="contant.html" class="btn btn-primary-custom w-100">Book Reading</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="blog-hero mb-5">
+            <div>
+                <span class="text-primary fw-bold text-uppercase small">Featured Article</span>
+                <h1 class="fw-bold mt-2">Understanding the Current Mercury Retrograde</h1>
+                <p class="text-light opacity-75 mb-0 d-none d-md-block">Navigate communication challenges and technological mishaps with our essential guide.</p>
+            </div>
+        </div>
+
+        <div class="row g-3 mb-5 align-items-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-text bg-dark border-0 text-secondary"><span class="material-symbols-outlined">search</span></span>
+                    <input type="text" class="form-control search-input" placeholder="Search articles...">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="#" class="filter-chip active">All</a>
+                    <a href="#" class="filter-chip">Zodiac Signs</a>
+                    <a href="#" class="filter-chip">Transits</a>
+                    <a href="#" class="filter-chip">Astrology 101</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4 blog-item">
+                <div class="blog-card-img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDmVmGTr6-xILLKYV4eq-ip34GN0CuUt1D0SnqAuWqedZffAyw2COiBfZfK-AUwspyS69RvbzACotQnVPAqvE-S6XqeTpalpQaT7pVGdQfFGjkgUyKeVQRYDnYtCbxNc7aeZZzn5Ihaec1_YfhpyADz4VegS6z90tmKxR6gk4L_QD_0GvFUAqLLsVgNYfblzcris3VYpoWZn430aoidCDUE4YRpThnbAHKTZVJzLuLp-7K7R-kFu-lSag0G1ua_Z2kLD0-1OxWF30ZT');"></div>
+                <div class="p-1">
+                    <span class="text-primary fw-bold small text-uppercase">Zodiac Signs</span>
+                    <h5 class="fw-bold mt-2"><a href="#" class="text-white text-decoration-none">How Venus in Leo Affects Love</a></h5>
+                    <p class="text-secondary small">October 26, 2023</p>
+                </div>
+            </div>
+            <div class="col-md-4 blog-item">
+                <div class="blog-card-img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuATkbjSrtDdD75_91szUgyrtY9t7u6SGZUaoOc5xsJfXHoy9ha6yB9nVDViCfHhcj3FlwwjZiFnnqKKsZVKPdl9zphqRkdFDg20x_DJDW1HZziL3MuNeDZabJeznYl4yB5dRRD--Fa8hygV9ZpiJTtWS5XpHD1rGQz4xaawvxTcZukJNg4lBViYInNgDxFwch9AlAgbsgJL_IZbPN0SwJfyLbDPbe7aCKaFSYIT1b1mG-PULn0qk_0N1v5sqg_O2_3vC149WRwUPRkF');"></div>
+                <div class="p-1">
+                    <span class="text-primary fw-bold small text-uppercase">Spiritual Guidance</span>
+                    <h5 class="fw-bold mt-2"><a href="#" class="text-white text-decoration-none">New Moon Rituals</a></h5>
+                    <p class="text-secondary small">October 24, 2023</p>
+                </div>
+            </div>
+            <div class="col-md-4 blog-item">
+                <div class="blog-card-img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjs5aSCb18oyyHn2WJTt9dJhAdjX5oex2qN8NX6N68auvs51AO0emlxI1LODbl_CJl3Ep7kua79ttyquWZBQFJDUyO08opGA_EJsTue5nPybC-VL-TWmo64nqsWiOx2ht7OvssGS7ikBKOkXMV3Ss0TE5RNuPD6C5jQ9hKXRMBdkAEjy44Ny0W1usWd3yD72PR6QKIVhMKY1NdOCR7N1BTBMRrSrs9_jrg0HzQDLx8baTH7_iip7tZ1yEQQac9UOdEO3WDZGCPtkUT');"></div>
+                <div class="p-1">
+                    <span class="text-primary fw-bold small text-uppercase">Astrology 101</span>
+                    <h5 class="fw-bold mt-2"><a href="#" class="text-white text-decoration-none">Guide to Birth Charts</a></h5>
+                    <p class="text-secondary small">October 22, 2023</p>
+                </div>
+            </div>
+            <div class="col-md-4 blog-item">
+                <div class="blog-card-img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDF7L6TnLG9pXB38wndPsKP28giOBmZnfzKOlsQo1lVyYguzVKgH_VQUguf0Af8gI4eXGNIPea3VUWDVtvOtQxdDp_X5jvkcQJiueqcDb3OWX5YcIRl314RWlvYt9vDSDpf6vcnq9x6pAFiG91n9anf-NoMcehPLgzOcWQ5pHGF-mDiVLLvNefQ9T20WG7Fd9gWfBSFZpCHTeWJvUIHJDGmiqOU1Y113GD4JPMCdZTAv63Xc336mB3IRzJ37sUD7vWXDwQjlgqb-EbH');"></div>
+                <div class="p-1">
+                    <span class="text-primary fw-bold small text-uppercase">Planetary Transits</span>
+                    <h5 class="fw-bold mt-2"><a href="#" class="text-white text-decoration-none">Jupiter's Return Meaning</a></h5>
+                    <p class="text-secondary small">October 20, 2023</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="mt-5 d-flex justify-content-center">
+            <ul class="pagination">
+                <li class="page-item disabled"><a class="page-link bg-dark border-secondary text-secondary" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link bg-primary border-primary text-white" href="#">1</a></li>
+                <li class="page-item"><a class="page-link bg-dark border-secondary text-secondary" href="#">2</a></li>
+                <li class="page-item"><a class="page-link bg-dark border-secondary text-secondary" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="text-secondary mb-0">© 2024 Cosmic Guidance. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

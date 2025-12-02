@@ -1,166 +1,116 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About the Astrologer</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#1132d4",
-              "background-light": "#f6f6f8",
-              "background-dark": "#101322",
-            },
-            fontFamily: {
-              "display": ["Manrope", "sans-serif"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Cosmic Guidance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #1132d4; --bg-dark: #101322; --bg-card: rgba(255, 255, 255, 0.05); --text-white: #ffffff; --border-color: #232948; }
+        body { font-family: 'Manrope', sans-serif; background-color: var(--bg-dark); color: var(--text-white); }
+        .navbar { background-color: rgba(16, 19, 34, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        .nav-link { color: #d1d5db !important; font-weight: 500; margin-right: 15px; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-color) !important; }
+        .navbar-toggler { border-color: rgba(255,255,255,0.1); filter: invert(1); }
+        .btn-primary-custom { background-color: var(--primary-color); color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 700; transition: 0.3s; }
+        .btn-primary-custom:hover { background-color: #0e2ab0; color: white; }
+        
+        .profile-img {
+            width: 100%;
+            max-width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--border-color);
         }
+        .feature-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; height: 100%; }
+        
+        footer { border-top: 1px solid var(--border-color); background-color: #0d101b; padding: 30px 0; margin-top: 50px; }
     </style>
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-<!-- TopNavBar -->
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 dark:border-b-[#232948] px-4 sm:px-10 py-3">
-<div class="flex items-center gap-4 text-slate-800 dark:text-white">
-<div class="size-4 text-primary">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
-</svg>
-</div>
-<h2 class="text-slate-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Astra Nova</h2>
-</div>
-<div class="hidden md:flex flex-1 justify-end gap-8">
-<div class="flex items-center gap-9">
-<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal" href="index.html">Home</a>
-<a class="text-primary dark:text-white text-sm font-bold leading-normal" href="about.html">About</a>
-<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal" href="service.html">Services</a>
-<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal" href="blog.html">Blog</a>
-<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal" href="contant.html">Contact</a>
-</div>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
-<span class="truncate">Book a Consultation</span>
-</button>
-</div>
-</header>
-<!-- HeroSection -->
-<div class="@container pt-10">
-<div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row-reverse">
-<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-full mx-auto max-w-[300px] @[864px]:max-w-none @[480px]:h-auto @[480px]:min-w-[300px] @[864px]:w-full" data-alt="Professional headshot of Elara Vance, the astrologer" style='background-image: url("./jjj.webp");'></div>
-<div class="flex flex-col gap-6 text-center @[864px]:text-left @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
-<div class="flex flex-col gap-2">
-<h1 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
-                                        Meet Elara Vance
-                                    </h1>
-<h2 class="text-slate-600 dark:text-slate-300 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                                        Your guide to navigating life's journey through the cosmos. I'm here to help you uncover the celestial map of your soul's purpose.
-                                    </h2>
-</div>
-</div>
-</div>
-</div>
-<!-- My Story Section -->
-<section class="px-4 py-10">
-<h2 class="text-slate-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">My Story &amp; Philosophy</h2>
-<p class="text-slate-700 dark:text-slate-300 text-base font-normal leading-normal pb-3 pt-1">
-                            My journey into the world of astrology began not just as a study, but as a profound calling. For over 15 years, I have dedicated myself to understanding the intricate dance of the cosmos and its reflection within each of us. My philosophy is rooted in the belief that astrology is a tool for empowerment, providing clarity, and illuminating the path to our highest potential. It's not about predicting a fixed fate, but about navigating life with greater awareness and intention. I see the birth chart as a sacred blueprint, offering insights into our strengths, challenges, and the unique gifts we are here to share with the world.
-                        </p>
-</section>
-<!-- FeatureSection / My Approach -->
-<div class="flex flex-col gap-10 px-4 py-10 @container">
-<div class="flex flex-col gap-4">
-<h1 class="text-slate-900 dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
-                                My Approach &amp; Qualifications
-                            </h1>
-<p class="text-slate-700 dark:text-slate-300 text-base font-normal leading-normal max-w-[720px]">
-                                I combine ancient wisdom with modern psychological insights to offer guidance that is both spiritual and practical.
-                            </p>
-</div>
-<div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 p-0">
-<div class="flex flex-1 gap-3 rounded-lg border border-slate-200 dark:border-[#323b67] bg-white dark:bg-[#191e33] p-4 flex-col">
-<div class="text-primary dark:text-white">
-<span class="material-symbols-outlined">star</span>
-</div>
-<div class="flex flex-col gap-1">
-<h2 class="text-slate-900 dark:text-white text-base font-bold leading-tight">Certified Expertise</h2>
-<p class="text-slate-600 dark:text-[#929bc9] text-sm font-normal leading-normal">Holding certifications from the International Society for Astrological Research (ISAR).</p>
-</div>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-slate-200 dark:border-[#323b67] bg-white dark:bg-[#191e33] p-4 flex-col">
-<div class="text-primary dark:text-white">
-<span class="material-symbols-outlined">psychology</span>
-</div>
-<div class="flex flex-col gap-1">
-<h2 class="text-slate-900 dark:text-white text-base font-bold leading-tight">Empathetic Guidance</h2>
-<p class="text-slate-600 dark:text-[#929bc9] text-sm font-normal leading-normal">A compassionate and non-judgmental space for your journey of self-discovery.</p>
-</div>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-slate-200 dark:border-[#323b67] bg-white dark:bg-[#191e33] p-4 flex-col">
-<div class="text-primary dark:text-white">
-<span class="material-symbols-outlined">person</span>
-</div>
-<div class="flex flex-col gap-1">
-<h2 class="text-slate-900 dark:text-white text-base font-bold leading-tight">Personalized Readings</h2>
-<p class="text-slate-600 dark:text-[#929bc9] text-sm font-normal leading-normal">Every consultation is tailored to your unique birth chart and life questions.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Testimonials Section -->
-<section class="px-4 py-10">
-<div class="text-center">
-<h2 class="text-slate-900 dark:text-white text-[32px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">Words From My Clients</h2>
-<p class="text-slate-700 dark:text-slate-300 text-base font-normal leading-normal max-w-3xl mx-auto">Hear what others have discovered on their cosmic journey with me.</p>
-</div>
-<div class="mt-8 grid gap-8 md:grid-cols-2">
-<div class="p-6 rounded-lg border border-slate-200 dark:border-[#323b67] bg-white dark:bg-[#191e33]">
-<div class="flex items-center gap-4 mb-4">
-<img alt="Client headshot" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAlFCuVeqvqoOZw9WVWmmMLeptwqofmm0Tzw6cQaITn_WFIrw_VTqzfOG72mRdpsjGlOWdo8IELtO7cXPsphIwkYfxeMLDtm5odqPJfHDg-MldLtvcM8NdoHIAqhU5LtfNK_ZSNqWS9kVHqBZt_i_R_PGI2iTr6SZ0kNl2X6cQTe2UvpT9Fkc6Pw2D3LBD46ji_zUmw6VSFTR91UT1STkmHNngeqXgHLkh8TaPGrCljcsPaUeQF8afdS74kAT55k6R18tMXLS5HZUD"/>
-<div>
-<h3 class="text-slate-900 dark:text-white font-bold">Jessica L.</h3>
-<p class="text-slate-500 dark:text-[#929bc9] text-sm">Marketing Manager</p>
-</div>
-</div>
-<p class="text-slate-600 dark:text-slate-300 italic">"Elara's reading was incredibly insightful. It felt like she was speaking directly to my soul, providing clarity on a career crossroad I was facing. Truly transformative."</p>
-</div>
-<div class="p-6 rounded-lg border border-slate-200 dark:border-[#323b67] bg-white dark:bg-[#191e33]">
-<div class="flex items-center gap-4 mb-4">
-<img alt="Client headshot" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfWqHf6T1pRe2d_bSpUATpJQPF4NJfUtkU5kOs7PEg1XTNLeEP7169O_d_KxPi3Pb4tCTcHWzBY70n9Hk1GLXmj63B4hqe5TSOINXH5hycfM4UZPwj9c309wFAz-Vj_HU6Z4GU4uNXLErReKkclwndcFh1NvbkIouoPS0A_938jRFr5z172h2S2pg8DhiWi8P9gj3IHPUusGFtj8pd3ggsTzZujYTWrm6NH8JMILIybwjO3nIaftlvQuuw2vzSywhDjoy99V3wTA9-"/>
-<div>
-<h3 class="text-slate-900 dark:text-white font-bold">David Chen</h3>
-<p class="text-slate-500 dark:text-[#929bc9] text-sm">Artist</p>
-</div>
-</div>
-<p class="text-slate-600 dark:text-slate-300 italic">"I was skeptical about astrology, but Elara's approach is so grounded and practical. She helped me understand my creative blocks in a new light. Highly recommended."</p>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="text-center bg-primary/10 dark:bg-primary/20 rounded-lg p-8 sm:p-12 my-10 mx-4">
-<h2 class="text-slate-900 dark:text-white text-3xl font-bold mb-4">Ready to Illuminate Your Path?</h2>
-<p class="text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-8">Let's explore the stars together. Book a personal consultation to unlock the wisdom within your unique cosmic blueprint and gain clarity on your life's journey.</p>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] mx-auto">
-<span class="truncate">Book Your Consultation Now</span>
-</button>
-</section>
-</div>
-</div>
-</div>
-</div>
-</body></html>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold d-flex align-items-center gap-2" href="#">
+                <span class="material-symbols-outlined text-primary fs-2">auto_awesome</span> Astra Nova
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contant.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a href="contant.html" class="btn btn-primary-custom w-100">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="row align-items-center flex-column-reverse flex-lg-row mb-5">
+            <div class="col-lg-6 mt-4 mt-lg-0 text-center text-lg-start">
+                <h1 class="display-4 fw-bold mb-3">Meet Kaviya Kamaraj, <br>Your Astrological Guide</h1>
+                <p class="text-secondary lead">Your guide to navigating life's journey through the cosmos. I'm here to help you uncover the celestial map of your soul's purpose.</p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="./jjj.webp" alt="Astrologer" class="profile-img shadow-lg">
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="fw-bold mb-3">My Story & Philosophy</h2>
+                <p class="text-secondary" style="line-height: 1.8;">
+                    My journey into the world of astrology began not just as a study, but as a profound calling. For over 15 years, I have dedicated myself to understanding the intricate dance of the cosmos and its reflection within each of us. My philosophy is rooted in the belief that astrology is a tool for empowerment, providing clarity, and illuminating the path to our highest potential. It's not about predicting a fixed fate, but about navigating life with greater awareness and intention.
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-5">
+            <h2 class="fw-bold mb-4">My Approach & Qualifications</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <span class="material-symbols-outlined text-primary fs-2 mb-2">star</span>
+                        <h5 class="fw-bold">Certified Expertise</h5>
+                        <p class="text-secondary small mb-0">Holding certifications from the International Society for Astrological Research (ISAR).</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <span class="material-symbols-outlined text-primary fs-2 mb-2">psychology</span>
+                        <h5 class="fw-bold">Empathetic Guidance</h5>
+                        <p class="text-secondary small mb-0">A compassionate and non-judgmental space for your journey of self-discovery.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <span class="material-symbols-outlined text-primary fs-2 mb-2">person</span>
+                        <h5 class="fw-bold">Personalized Readings</h5>
+                        <p class="text-secondary small mb-0">Every consultation is tailored to your unique birth chart and life questions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-5 rounded-4 text-center" style="background-color: rgba(17, 50, 212, 0.1);">
+            <h2 class="fw-bold mb-3">Ready to Illuminate Your Path?</h2>
+            <p class="text-secondary mb-4">Let's explore the stars together. Book a personal consultation.</p>
+            <a href="contant.html" class="btn btn-primary-custom">Book Your Consultation Now</a>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="text-secondary mb-0">© 2024 Cosmic Guidance. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

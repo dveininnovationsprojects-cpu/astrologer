@@ -1,186 +1,333 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Guidance - Astrologer Website</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cosmic Guidance - Astrologer Website</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              colors: {
-                "primary": "#1132d4",
-                "background-light": "#f6f6f8",
-                "background-dark": "#101322",
-              },
-              fontFamily: {
-                "display": ["Manrope", "sans-serif"]
-              },
-              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-            },
-          },
+    <style>
+        :root {
+            --primary-color: #1132d4;
+            --bg-dark: #101322;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --text-white: #ffffff;
+            --text-grey: #a0aec0;
+            --border-color: #232948;
         }
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-      }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+        }
+
+        /* Navbar Customization */
+        .navbar {
+            background-color: rgba(16, 19, 34, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: #d1d5db !important;
+            font-weight: 500;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        /* Mobile Menu Toggler styling */
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.1); 
+            background-color: rgba(255,255,255,0.1);
+        }
+        .navbar-toggler-icon {
+            filter: invert(1); /* Make the hamburger icon white */
+        }
+
+        /* Buttons */
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 700;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #0e2ab0;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 60px 0;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 992px) {
+            .hero-title { font-size: 3.5rem; }
+        }
+
+        .hero-subtitle {
+            color: var(--text-grey);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-img {
+            border-radius: 20px;
+            background-size: cover;
+            background-position: center;
+            height: 590px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Cards (Services & Testimonials) */
+        .feature-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            height: 100%;
+            transition: transform 0.3s, border-color 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .testimonial-card {
+            text-align: left;
+        }
+
+        .material-symbols-outlined {
+            vertical-align: middle;
+        }
+
+        .icon-box {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-stars {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* CTA Section */
+        .cta-box {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 50px 20px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            background-color: #0d101b;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 991px) {
+            .hero-section {
+                text-align: center;
+                flex-direction: column-reverse; /* Stack text below image on mobile */
+            }
+            .navbar-collapse {
+                background-color: var(--bg-dark);
+                padding: 20px;
+                border-radius: 0 0 10px 10px;
+                border-top: 1px solid var(--border-color);
+                margin-top: 15px;
+            }
+            .nav-link {
+                margin-bottom: 10px;
+                padding-left: 0;
+            }
+        }
     </style>
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<!-- TopNavBar -->
-<header class="sticky top-0 z-50 flex items-center justify-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
-<div class="flex items-center justify-between w-full max-w-6xl px-4 py-3 border-b border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-4 text-slate-900 dark:text-white">
-<div class="size-6 text-primary">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Cosmic Guidance</h2>
-</div>
-<nav class="hidden md:flex flex-1 justify-end gap-8">
-<div class="flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
-<a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Home</a>
-<a class="hover:text-primary dark:hover:text-white transition-colors" href="about.html">About</a>
-<a class="hover:text-primary dark:hover:text-white transition-colors" href="service.html">Services</a>
-<a class="hover:text-primary dark:hover:text-white transition-colors" href="blog.html">Testimonials</a>
-<a class="hover:text-primary dark:hover:text-white transition-colors" href="contant.html">Contact</a>
-</div>
-<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Book a Consultation</span>
-</button>
-</nav>
-</div>
-</header>
-<main class="flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col w-full max-w-6xl gap-10 md:gap-16">
-<!-- HeroSection -->
-<div class="@container px-4">
-<div class="flex flex-col-reverse gap-8 py-10 @[864px]:flex-row @[864px]:items-center">
-<div class="flex flex-col gap-6 text-center @[864px]:text-left @[864px]:w-1/2">
-<div class="flex flex-col gap-4">
-<h1 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">LoveGuru acharasami thiru jodhidam </h1>
-<h2 class="text-slate-600 dark:text-slate-300 text-base font-normal leading-normal @[480px]:text-lg">kalyana yoogam kaanuvom || kathal kalyanam panubavargaluku jodhidam muthal murai ilavasam for one love noted!</h2>
-</div>
-<div class="flex justify-center @[864px]:justify-start">
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Book a Reading</span>
-</button>
-</div>
-</div>
-<div class="flex-1 @[864px]:w-1/2">
-<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" data-alt="A professional and friendly portrait of an astrologer against a dark, celestial background." style='background-image: url("./Gemini_Generated_Image_5ujuz25ujuz25uju.png");'></div>
-</div>
-</div>
-</div>
-<!-- Introduction Section -->
-<div class="px-4 text-center">
-<div class="flex flex-col items-center gap-4">
-<h2 class="text-slate-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Welcome, Star Seeker</h2>
-<p class="text-slate-600 dark:text-slate-300 text-base font-normal leading-normal max-w-3xl">I believe that the stars hold a map to our innermost selves. My approach combines ancient wisdom with modern insight to provide you with clear, compassionate, and empowering guidance on your life's journey.</p>
-</div>
-</div>
-<!-- FeatureSection (Services) -->
-<div class="flex flex-col gap-10 px-4 py-10 @container">
-<div class="flex flex-col items-center text-center gap-6">
-<div class="flex flex-col items-center gap-4">
-<h1 class="text-slate-900 dark:text-white tracking-tight text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black max-w-[720px]">Discover Your Path Through My Services</h1>
-<p class="text-slate-600 dark:text-slate-300 text-base font-normal leading-normal max-w-[720px]">Each reading is tailored to your unique cosmic blueprint, offering clarity on life, love, career, and personal growth.</p>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-0">
-<div class="flex flex-col flex-1 gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-slate-900/40 p-6 text-center items-center">
-<div class="text-primary"><span class="material-symbols-outlined !text-4xl">neurology</span></div>
-<div class="flex flex-col gap-1">
-<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Birth Chart Reading</h2>
-<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">A deep dive into your natal chart to uncover your strengths, challenges, and life's purpose.</p>
-</div>
-</div>
-<div class="flex flex-col flex-1 gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-slate-900/40 p-6 text-center items-center">
-<div class="text-primary"><span class="material-symbols-outlined !text-4xl">favorite</span></div>
-<div class="flex flex-col gap-1">
-<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Relationship Astrology</h2>
-<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">Explore the dynamics between you and a partner through synastry and composite charts.</p>
-</div>
-</div>
-<div class="flex flex-col flex-1 gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-slate-900/40 p-6 text-center items-center">
-<div class="text-primary"><span class="material-symbols-outlined !text-4xl">work</span></div>
-<div class="flex flex-col gap-1">
-<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight">Career Guidance</h2>
-<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">Align your professional life with your cosmic calling and identify opportunities for success.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Testimonials Section -->
-<div class="flex flex-col gap-10 px-4 py-10">
-<div class="flex flex-col items-center text-center gap-4">
-<h2 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em]">What My Clients Say</h2>
-<p class="text-slate-600 dark:text-slate-300 text-base font-normal leading-normal max-w-2xl">Discover how cosmic guidance has transformed lives and provided clarity.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-slate-900/40 p-6">
-<div class="flex items-center gap-2">
-<div class="text-primary flex items-center">
-<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
-</div>
-</div>
-<p class="text-slate-600 dark:text-slate-300 italic">"The reading was incredibly insightful and accurate. It gave me the clarity I was searching for and helped me understand my path with confidence."</p>
-<p class="font-bold text-slate-900 dark:text-white">- Jessica M.</p>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-slate-900/40 p-6">
-<div class="flex items-center gap-2">
-<div class="text-primary flex items-center">
-<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
-</div>
-</div>
-<p class="text-slate-600 dark:text-slate-300 italic">"A truly transformative experience. The guidance I received was not only profound but also practical and empowering. Highly recommended!"</p>
-<p class="font-bold text-slate-900 dark:text-white">- David R.</p>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-slate-900/40 p-6">
-<div class="flex items-center gap-2">
-<div class="text-primary flex items-center">
-<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
-</div>
-</div>
-<p class="text-slate-600 dark:text-slate-300 italic">"I felt so seen and understood. The session helped me navigate a difficult career transition with a newfound sense of purpose."</p>
-<p class="font-bold text-slate-900 dark:text-white">- Sarah L.</p>
-</div>
-</div>
-</div>
-<!-- CTA Section -->
-<div class="px-4 py-10">
-<div class="flex flex-col items-center justify-center gap-6 rounded-xl bg-slate-100 dark:bg-slate-900 p-8 md:p-12 text-center">
-<h2 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-tight">Ready to Align with the Stars?</h2>
-<p class="text-slate-600 dark:text-slate-300 max-w-xl">Your cosmic journey awaits. Book a personal consultation today and unlock the wisdom that the universe holds for you.</p>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Book Your Consultation Now</span>
-</button>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="flex justify-center border-t border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark">
-<div class="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl px-4 py-6 text-sm text-slate-500 dark:text-slate-400">
-<p>© 2024 Cosmic Guidance. All Rights Reserved.</p>
-<div class="flex gap-4 mt-4 md:mt-0">
-<a class="hover:text-primary dark:hover:text-white" href="#">Privacy Policy</a>
-<a class="hover:text-primary dark:hover:text-white" href="#">Terms of Service</a>
-</div>
-</div>
-</footer>
-</div>
-</div>
-</body></html>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="material-symbols-outlined text-primary" style="font-size: 30px;">auto_awesome</span>
+                Cosmic Guidance
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contant.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="contant.html" class="btn btn-primary-custom w-100">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <div class="row hero-section align-items-center flex-column-reverse flex-lg-row">
+            <div class="col-lg-6 mt-4 mt-lg-0 text-center text-lg-start">
+                <h1 class="hero-title mb-3">LoveGuru acharasami thiru jodhidam</h1>
+                <h2 class="hero-subtitle">kalyana yoogam kaanuvom || kathal kalyanam panubavargaluku jodhidam muthal murai ilavasam for one love noted!</h2>
+                <div class="d-flex justify-content-center justify-content-lg-start">
+                    <a href="contant.html" class="btn btn-primary-custom btn-lg">Book a Reading</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-img" style="background-image: url('./Gemini_Generated_Image_5ujuz25ujuz25uju.png'); background-color: #1a2035;"></div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center text-center my-5">
+            <div class="col-lg-8">
+                <h2 class="fw-bold mb-3">Welcome, Star Seeker</h2>
+                <p class="text-secondary" style="color: #a0aec0 !important;">I believe that the stars hold a map to our innermost selves. My approach combines ancient wisdom with modern insight to provide you with clear, compassionate, and empowering guidance on your life's journey.</p>
+            </div>
+        </div>
+
+        <div class="py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-6">Discover Your Path Through My Services</h2>
+                <p class="text-muted">Each reading is tailored to your unique cosmic blueprint.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <span class="material-symbols-outlined" style="font-size: 40px;">neurology</span>
+                        </div>
+                        <h4>Birth Chart Reading</h4>
+                        <p class="text-muted small">A deep dive into your natal chart to uncover your strengths, challenges, and life's purpose.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <span class="material-symbols-outlined" style="font-size: 40px;">favorite</span>
+                        </div>
+                        <h4>Relationship Astrology</h4>
+                        <p class="text-muted small">Explore the dynamics between you and a partner through synastry and composite charts.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <span class="material-symbols-outlined" style="font-size: 40px;">work</span>
+                        </div>
+                        <h4>Career Guidance</h4>
+                        <p class="text-muted small">Align your professional life with your cosmic calling and identify opportunities for success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-5">
+            <h2 class="text-center fw-bold mb-5">What My Clients Say</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card testimonial-card">
+                        <div class="testimonial-stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                        <p class="fst-italic text-muted">"The reading was incredibly insightful and accurate. It gave me the clarity I was searching for."</p>
+                        <p class="fw-bold mb-0">- Jessica M.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card testimonial-card">
+                        <div class="testimonial-stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                        <p class="fst-italic text-muted">"A truly transformative experience. The guidance I received was profound and practical."</p>
+                        <p class="fw-bold mb-0">- David R.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card testimonial-card">
+                        <div class="testimonial-stars">
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                        <p class="fst-italic text-muted">"I felt so seen and understood. The session helped me navigate a difficult career transition."</p>
+                        <p class="fw-bold mb-0">- Sarah L.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-box text-center my-5">
+            <h2 class="fw-bold mb-3">Ready to Align with the Stars?</h2>
+            <p class="text-muted mb-4">Your cosmic journey awaits. Book a personal consultation today.</p>
+            <a href="contant.html" class="btn btn-primary-custom btn-lg">Book Your Consultation Now</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-0 text-muted">© 2024 Cosmic Guidance. All Rights Reserved.</p>
+            <div class="mt-3 mt-md-0">
+                <a href="#" class="text-muted text-decoration-none me-3 hover-primary">Privacy Policy</a>
+                <a href="#" class="text-muted text-decoration-none hover-primary">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

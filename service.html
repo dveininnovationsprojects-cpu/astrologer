@@ -1,280 +1,117 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Astrology Services Page</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#1132d4",
-              "background-light": "#f6f6f8",
-              "background-dark": "#101322",
-            },
-            fontFamily: {
-              "display": ["Manrope", "sans-serif"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Cosmic Guidance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #1132d4; --bg-dark: #101322; --bg-card: rgba(255, 255, 255, 0.05); --text-white: #ffffff; --border-color: #232948; }
+        body { font-family: 'Manrope', sans-serif; background-color: var(--bg-dark); color: var(--text-white); }
+        .navbar { background-color: rgba(16, 19, 34, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        .nav-link { color: #d1d5db !important; font-weight: 500; margin-right: 15px; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-color) !important; }
+        .navbar-toggler { border-color: rgba(255,255,255,0.1); filter: invert(1); }
+        .btn-primary-custom { background-color: var(--primary-color); color: white; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 700; transition: 0.3s; }
+        .btn-primary-custom:hover { background-color: #0e2ab0; color: white; }
+        .feature-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; height: 100%; transition: 0.3s; text-align: center; }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        footer { border-top: 1px solid var(--border-color); background-color: #0d101b; padding: 30px 0; margin-top: 50px; }
+        
+        /* Specific to Services Page */
+        .service-hero {
+            background: linear-gradient(rgba(16, 19, 34, 0.7), rgba(16, 19, 34, 0.8)), url("https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            padding: 80px 20px;
+            margin-top: 30px;
+            text-align: center;
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display">
-<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
-<div class="mx-auto flex max-w-7xl items-center justify-between whitespace-nowrap border-b border-solid border-slate-200/50 dark:border-slate-800/50 px-6 py-3">
-<div class="flex items-center gap-4 text-slate-900 dark:text-white">
-<div class="size-6 text-primary">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Cosmic Guidance</h2>
-</div>
-<div class="hidden md:flex flex-1 justify-end gap-8">
-<div class="flex items-center gap-9">
-<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal transition-colors" href="index.html">Home</a>
-<a class="text-primary dark:text-white text-sm font-medium leading-normal" href="service.html">Services</a>
-<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal transition-colors" href="about.html">About</a>
-<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal transition-colors" href="blog.html">Blog</a>
-<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white text-sm font-medium leading-normal transition-colors" href="contant.html">Contact</a>
-</div>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Book Now</span>
-</button>
-</div>
-<div class="md:hidden">
-<button class="flex items-center justify-center rounded-lg p-2 text-slate-900 dark:text-white">
-<span class="material-symbols-outlined text-2xl" data-icon="menu">menu</span>
-</button>
-</div>
-</div>
-</header>
-<main class="flex-1">
-<!-- Hero Section -->
-<section class="py-16 sm:py-24">
-<div class="mx-auto max-w-7xl px-6">
-<div class="relative flex min-h-[480px] flex-col items-center justify-center gap-8 overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat p-8 text-center" data-alt="Abstract mystical background with constellations and nebulae" style='background-image: linear-gradient(rgba(16, 19, 34, 0.7) 0%, rgba(16, 19, 34, 0.8) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZOvt1ro72Lsfc1jHTD6n7ZJnpTDviKcd5res3dU1J-XfJFMGdGKKLtMkrrq5Hq2fRTJYdWtkPUQKbid17eFfQ-v0d-tTVcKK5PW3tDzoZK58hSoymykskHoJVC6P6yxYXObb2adiJGbOCU9CDkS_UsGbCaiM0zfhDVNTgEfX58DPgCmLBPc9Rmb2TbRVrK5kNdkeTyqdMr1QDKY65Tn9LuYC8PZ9srCYgjai9T9IHG2P3UPkXuPHbiap-zBdfZqdP5Iw3blJViLPH");'>
-<div class="flex flex-col gap-4">
-<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl">Discover Your Cosmic Blueprint</h1>
-<p class="mx-auto max-w-2xl text-slate-300 text-base font-normal leading-normal md:text-lg">Explore our astrological readings to unlock personal insights and navigate your life's journey with clarity and purpose.</p>
-</div>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Explore Services</span>
-</button>
-</div>
-</div>
-</section>
-<!-- Services Section -->
-<section class="py-16 sm:py-24 bg-slate-100/30 dark:bg-slate-900/30" id="services">
-<div class="mx-auto max-w-7xl px-6">
-<div class="flex flex-col gap-4 text-center">
-<h2 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] md:text-4xl">Our Astrological Offerings</h2>
-<p class="mx-auto max-w-2xl text-slate-600 dark:text-slate-400">Personalized readings to illuminate your path and potential.</p>
-</div>
-<div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-<!-- Service Card 1 -->
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark p-6 text-center">
-<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-3xl" data-icon="auto_awesome">auto_awesome</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-normal">Birth Chart Reading</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">A deep dive into your unique astrological profile at the moment of your birth.</p>
-</div>
-<div class="mt-4 flex flex-col gap-3 sm:flex-row sm:justify-center">
-<button class="flex flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
-<span class="truncate">Learn More</span>
-</button>
-<button class="flex flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Book Now</span>
-</button>
-</div>
-</div>
-<!-- Service Card 2 -->
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark p-6 text-center">
-<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-3xl" data-icon="favorite">favorite</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-normal">Relationship Compatibility</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">Understand the dynamics and synergies between you and a partner.</p>
-</div>
-<div class="mt-4 flex flex-col gap-3 sm:flex-row sm:justify-center">
-<button class="flex flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
-<span class="truncate">Learn More</span>
-</button>
-<button class="flex flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Book Now</span>
-</button>
-</div>
-</div>
-<!-- Service Card 3 -->
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark p-6 text-center">
-<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-3xl" data-icon="calendar_today">calendar_today</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-normal">Yearly Forecast</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">A comprehensive look at the major themes and opportunities for the year ahead.</p>
-</div>
-<div class="mt-4 flex flex-col gap-3 sm:flex-row sm:justify-center">
-<button class="flex flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
-<span class="truncate">Learn More</span>
-</button>
-<button class="flex flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Book Now</span>
-</button>
-</div>
-</div>
-<!-- Service Card 4 -->
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark p-6 text-center">
-<div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-3xl" data-icon="work">work</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-normal">Career &amp; Vocation</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">Align your professional path with your cosmic purpose and natural talents.</p>
-</div>
-<div class="mt-4 flex flex-col gap-3 sm:flex-row sm:justify-center">
-<button class="flex flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
-<span class="truncate">Learn More</span>
-</button>
-<button class="flex flex-1 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Book Now</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Testimonials Section -->
-<section class="py-16 sm:py-24">
-<div class="mx-auto max-w-7xl px-6">
-<div class="flex flex-col gap-4 text-center">
-<h2 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] md:text-4xl">Words from Our Clients</h2>
-<p class="mx-auto max-w-2xl text-slate-600 dark:text-slate-400">Hear what others have discovered on their cosmic journey.</p>
-</div>
-<div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-<div class="rounded-xl bg-slate-100 dark:bg-slate-900 p-8">
-<p class="text-slate-700 dark:text-slate-300">"The birth chart reading was incredibly insightful. It felt like I was given a map to my own life, highlighting strengths I didn't know I had. Truly transformative!"</p>
-<div class="mt-6 flex items-center gap-4">
-<img class="h-12 w-12 rounded-full object-cover" data-alt="Portrait of Sarah L." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGPIa65N6oY5CBRgEC8vzybk2MDdn6y5MC50V7bhsx8xWME7YKc1EBVSvhE2dSYSsF6fOC7xw8HOea2Ido-gLI8bXgum48J5k8CKooemFH7JyCen1F3X4Da_WY7PEPB35LmW1kjp_KyphyCJJSyE9GPrhTYfBH34sifvbul1JP7F3QYRJVkdEubf6dYQ4p2pCL_Xsk8MfS_x_h86Ks0C_1AB54T31pvTlqBHaUalrzASL4kRxNRYCkbTdN7lrAzeqBWbHDoqd5rAJE"/>
-<div>
-<p class="font-bold text-slate-900 dark:text-white">Sarah L.</p>
-<p class="text-sm text-slate-500 dark:text-slate-400">Spiritual Seeker</p>
-</div>
-</div>
-</div>
-<div class="rounded-xl bg-slate-100 dark:bg-slate-900 p-8">
-<p class="text-slate-700 dark:text-slate-300">"I was skeptical at first, but the relationship compatibility report was spot-on. It helped my partner and I understand our dynamics on a much deeper level."</p>
-<div class="mt-6 flex items-center gap-4">
-<img class="h-12 w-12 rounded-full object-cover" data-alt="Portrait of Mark Chen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXjNuSYF2cFa27xGecW0xitVW6iNiGfSGIeyTINKuxeMCfMEsOcitzOvBwMoWttA74VnwD1nnzvNz50kTnPpJe-Om5RMWyLk5G8yFDlDDJW8jZW5ds8HNDttXNbBhpXNmEnjhp6IH_DtBJ52x8DWDRRmYpkJ2ctH5VlWUKXuEzJbK_HRwtXjsJx4DgadKFDMlITFY3iU96OrvShz8BjnOThntJunKCMo2ocDV03dk21Tjn3268W7qcUAhonGltD_IHvjeNrQlqnvaQ"/>
-<div>
-<p class="font-bold text-slate-900 dark:text-white">Mark Chen</p>
-<p class="text-sm text-slate-500 dark:text-slate-400">Entrepreneur</p>
-</div>
-</div>
-</div>
-<div class="rounded-xl bg-slate-100 dark:bg-slate-900 p-8">
-<p class="text-slate-700 dark:text-slate-300">"The yearly forecast gave me so much clarity and confidence for the months ahead. I feel prepared and excited for what's to come. Highly recommended!"</p>
-<div class="mt-6 flex items-center gap-4">
-<img class="h-12 w-12 rounded-full object-cover" data-alt="Portrait of Jessica P." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmGmsjr_-SISxt0ddbBFjSv4yCA8AsCxC3b37BMnwbBqFqBkR0CIIk4eaWvprIVAhFYeAslP60G5zpGZUIHi-wNXDL50qaklnQ1XbyYzV1-BZ_ZuN0V91Ag_5gIMN7Xt4jH9hVZ_gDFQI3Porv4b4wqzik9fH95r9n9zqtm60ktbarkiiX8ygiCmm8rz8SKMWPxuyzwOagLdcK2pZIkLUYi0EcGcL8QJ88eysYV7AeakNZ0sZStIKGMGeJVu8U13yIjmtY8XDnBldJ"/>
-<div>
-<p class="font-bold text-slate-900 dark:text-white">Jessica P.</p>
-<p class="text-sm text-slate-500 dark:text-slate-400">Creative Director</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- FAQ Section -->
-<section class="py-16 sm:py-24 bg-slate-100/30 dark:bg-slate-900/30">
-<div class="mx-auto max-w-4xl px-6">
-<div class="flex flex-col gap-4 text-center">
-<h2 class="text-slate-900 dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] md:text-4xl">Frequently Asked Questions</h2>
-<p class="mx-auto max-w-2xl text-slate-600 dark:text-slate-400">Your questions, answered. Find clarity on our process and what to expect.</p>
-</div>
-<div class="mt-12 flex flex-col gap-4">
-<details class="group rounded-lg bg-background-light dark:bg-background-dark p-6 transition-all duration-300">
-<summary class="flex cursor-pointer items-center justify-between font-bold text-slate-900 dark:text-white">
-                                    What do I need for a reading?
-                                    <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
-</summary>
-<p class="mt-4 text-slate-600 dark:text-slate-400">For an accurate birth chart reading, you will need your exact date, time, and city of birth. If you don't know your exact birth time, we can still perform a reading, but some details may be less specific.</p>
-</details>
-<details class="group rounded-lg bg-background-light dark:bg-background-dark p-6 transition-all duration-300">
-<summary class="flex cursor-pointer items-center justify-between font-bold text-slate-900 dark:text-white">
-                                    How are readings delivered?
-                                    <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
-</summary>
-<p class="mt-4 text-slate-600 dark:text-slate-400">Readings are conducted live via a video call (Zoom or Google Meet) to allow for an interactive session where you can ask questions. You will also receive a recording of the session and a written summary of the key insights afterward.</p>
-</details>
-<details class="group rounded-lg bg-background-light dark:bg-background-dark p-6 transition-all duration-300">
-<summary class="flex cursor-pointer items-center justify-between font-bold text-slate-900 dark:text-white">
-                                    Is astrology a form of fortune-telling?
-                                    <span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
-</summary>
-<p class="mt-4 text-slate-600 dark:text-slate-400">Astrology is not about predicting a fixed future. Instead, it's a tool for self-awareness and understanding cosmic energies and potentials. It empowers you to make conscious choices, navigate challenges, and align with your highest path.</p>
-</details>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-slate-100 dark:bg-slate-900">
-<div class="mx-auto max-w-7xl px-6 py-12">
-<div class="grid grid-cols-1 gap-8 md:grid-cols-4">
-<div class="col-span-1 md:col-span-2">
-<div class="flex items-center gap-4 text-slate-900 dark:text-white">
-<div class="size-6 text-primary">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-</div>
-<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Cosmic Guidance</h2>
-</div>
-<p class="mt-4 max-w-xs text-sm text-slate-600 dark:text-slate-400">Your trusted guide to understanding the stars and yourself.</p>
-</div>
-<div>
-<h3 class="font-bold text-slate-900 dark:text-white">Navigate</h3>
-<ul class="mt-4 space-y-2 text-sm">
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="index.html">Home</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="service.html">Services</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="about.html">About</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="contant.html">Contact</a></li>
-</ul>
-</div>
-<div>
-<h3 class="font-bold text-slate-900 dark:text-white">Connect</h3>
-<ul class="mt-4 space-y-2 text-sm">
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">Instagram</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">Facebook</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">Newsletter</a></li>
-</ul>
-</div>
-</div>
-<div class="mt-12 border-t border-slate-200 dark:border-slate-800 pt-8 text-center text-sm text-slate-500 dark:text-slate-400">
-<p>© 2024 Cosmic Guidance. All rights reserved.</p>
-</div>
-</div>
-</footer>
-</div>
-</div>
-</body></html>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold d-flex align-items-center gap-2" href="#">
+                <span class="material-symbols-outlined text-primary fs-2">auto_awesome</span> Cosmic Guidance
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="service.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contant.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a href="contant.html" class="btn btn-primary-custom w-100">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mb-5">
+        <div class="service-hero">
+            <h1 class="display-4 fw-bold text-white mb-3">Discover Your Cosmic Blueprint</h1>
+            <p class="text-light lead mb-4 mx-auto" style="max-width: 700px;">Explore our astrological readings to unlock personal insights and navigate your life's journey with clarity and purpose.</p>
+            <button class="btn btn-primary-custom btn-lg">Explore Services</button>
+        </div>
+
+        <div class="row g-4 mt-5">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <span class="material-symbols-outlined text-primary fs-1 mb-3">neurology</span>
+                    <h4>Natal Charts</h4>
+                    <p class="text-secondary small">Understanding your personality through the stars.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <span class="material-symbols-outlined text-primary fs-1 mb-3">favorite</span>
+                    <h4>Couples Reading</h4>
+                    <p class="text-secondary small">Compatibility analysis for long-term relationships.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <span class="material-symbols-outlined text-primary fs-1 mb-3">work</span>
+                    <h4>Career Path</h4>
+                    <p class="text-secondary small">Find your true calling and professional timing.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <span class="material-symbols-outlined text-primary fs-1 mb-3">calendar_month</span>
+                    <h4>Yearly Transit</h4>
+                    <p class="text-secondary small">What the next 12 months hold for you.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <span class="material-symbols-outlined text-primary fs-1 mb-3">child_care</span>
+                    <h4>Child Astrology</h4>
+                    <p class="text-secondary small">Understanding your child's potential.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <span class="material-symbols-outlined text-primary fs-1 mb-3">spa</span>
+                    <h4>Spiritual Healing</h4>
+                    <p class="text-secondary small">Remedies for planetary doshas.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+            <p class="text-secondary mb-0">© 2024 Cosmic Guidance. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
