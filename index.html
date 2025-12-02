@@ -53,16 +53,14 @@
             color: var(--primary-color) !important;
         }
 
-        /* Mobile Menu Toggler styling */
         .navbar-toggler {
             border-color: rgba(255,255,255,0.1); 
             background-color: rgba(255,255,255,0.1);
         }
         .navbar-toggler-icon {
-            filter: invert(1); /* Make the hamburger icon white */
+            filter: invert(1);
         }
 
-        /* Buttons */
         .btn-primary-custom {
             background-color: var(--primary-color);
             color: white;
@@ -78,9 +76,10 @@
             color: white;
         }
 
-        /* Hero Section */
+        /* Hero Section Fixes */
         .hero-section {
-            padding: 60px 0;
+            /* Changed padding to 0 on top so image touches the nav area */
+            padding: 20px 0 60px 0; 
         }
 
         .hero-title {
@@ -91,6 +90,7 @@
         
         @media (min-width: 992px) {
             .hero-title { font-size: 3.5rem; }
+            .hero-section { padding: 60px 0; } /* Restore padding on Desktop */
         }
 
         .hero-subtitle {
@@ -102,13 +102,18 @@
         .hero-img {
             border-radius: 20px;
             background-size: cover;
-            background-position: center;
-            height: 590px;
+            /* Added 'top' to ensure the head touches the top of the box */
+            background-position: top center; 
+            height: 400px;
             width: 100%;
             border: 1px solid var(--border-color);
         }
+        
+        @media (min-width: 992px) {
+             .hero-img { height: 590px; }
+        }
 
-        /* Cards (Services & Testimonials) */
+        /* Cards */
         .feature-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -124,32 +129,17 @@
             border-color: var(--primary-color);
         }
 
-        .testimonial-card {
-            text-align: left;
-        }
+        .testimonial-card { text-align: left; }
+        .material-symbols-outlined { vertical-align: middle; }
+        .icon-box { color: var(--primary-color); margin-bottom: 15px; }
+        .testimonial-stars { color: var(--primary-color); margin-bottom: 10px; }
 
-        .material-symbols-outlined {
-            vertical-align: middle;
-        }
-
-        .icon-box {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        
-        .testimonial-stars {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        /* CTA Section */
         .cta-box {
             background-color: var(--bg-card);
             border-radius: 16px;
             padding: 50px 20px;
         }
 
-        /* Footer */
         footer {
             border-top: 1px solid var(--border-color);
             background-color: #0d101b;
@@ -161,7 +151,9 @@
         @media (max-width: 991px) {
             .hero-section {
                 text-align: center;
-                flex-direction: column-reverse; /* Stack text below image on mobile */
+                flex-direction: column-reverse;
+                /* Remove padding top completely on mobile */
+                padding-top: 20px; 
             }
             .navbar-collapse {
                 background-color: var(--bg-dark);
@@ -175,15 +167,9 @@
                 padding-left: 0;
             }
             .hero-img {
-            border-radius: 20px;
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            width: 100%;
-            border: 1px solid var(--border-color);
-          
-           
-        }
+                /* Ensure no margin pushing it down */
+                margin-top: 0;
+            }
         }
     </style>
 </head>
@@ -218,14 +204,14 @@
     <main class="container">
         
         <div class="row hero-section align-items-center flex-column-reverse flex-lg-row">
-            <div class="col-lg-6 mt-2 mt-lg-0 text-center text-lg-start">
-                <h1 class="hero-title mb-3">LoveGuru acharasami thiru jodhidam</h1>
+            <div class="col-lg-6 mt-4 mt-lg-0 text-center text-lg-start">
+                <h1 class="hero-title mb-2">LoveGuru acharasami thiru jodhidam</h1>
                 <h2 class="hero-subtitle">kalyana yoogam kaanuvom || kathal kalyanam panubavargaluku jodhidam muthal murai ilavasam for one love noted!</h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
                     <a href="contant.html" class="btn btn-primary-custom btn-lg">Book a Reading</a>
                 </div>
             </div>
-            <div class="col-lg-6 mb-2">
+            <div class="col-lg-6">
                 <div class="hero-img" style="background-image: url('./Gemini_Generated_Image_5ujuz25ujuz25uju.png'); background-color: #1a2035;"></div>
             </div>
         </div>
